@@ -1,0 +1,10 @@
+[
+    {
+        "name": "the love",
+        "time": "45"
+    },
+    {
+        "name": "",
+        "time": "& C:/Users/sarbuland/AppData/Local/Programs/Python/Python313/python.exe c:/Users/sarbuland/OneDrive/Documents/GitHub/oop/overall_practise.py/overall.py"
+    }
+]

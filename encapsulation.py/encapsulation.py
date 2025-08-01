@@ -16,12 +16,11 @@ class Subbank(Bank):
     def show_more(self):
         # self.details()              if parent ko nichy lana ho tu
         print("location",self.location)
-    def get_bank_balance(self):
-        return self.__bank_blance
+    
         
 
 s1=Subbank("ali",1235634556776,2000,"talwandi")
 # print("Name; ",s1.ower,"acount: ",s1.bank_account,"blance",s1.bank_blance)
 s1.show_more()
-s1.get_bank_balance()
+s1.details()
 # s1.__bank_blance     ager asy likhy gy tu error ay ga ku ky hum ny bank blance ko encapsuled kar diya ha

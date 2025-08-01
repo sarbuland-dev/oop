@@ -20,18 +20,17 @@
 # x.set_current_amount(70000)
 # print(x.get_current_amount())
 
-class Car:
-    def __init__(self):
-        self.__speed = 0
+# class Car:
+#     def __init__(self):
+#         self.__speed = 0
 
-    def accelerate(self):
-        self.__speed += 10
+#     def accelerate(self):
+#         self.__speed += 10
 
-    def brake(self):
-        self.__speed -= 10
+#     def brake(self):
+#         self.__speed -= 10
 
-    def get_speed(self):
-        return self.__speed
+#     def get_speed(self):
+#         return self.__speed
 
-x=Car(20,30)
-x.accelerate
+

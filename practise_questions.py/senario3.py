@@ -1,9 +1,4 @@
-# class add:
-#     def __init__(self,a,b,c=0):
-#         return a+b+c
-    
-# x=add()
-# print(x.__init__(23,34,5))
+
 
 class Calculator:
     def add(self, a, b, c=0):  # c is optional

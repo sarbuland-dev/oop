@@ -14,7 +14,7 @@ class Subbank(Bank):
         super().__init__(ower,bank_account,bank_blance)
         self.location=location
     def show_more(self):
-        # self.details()
+        # self.details()              if parent ko nichy lana ho tu
         print("location",self.location)
 
         

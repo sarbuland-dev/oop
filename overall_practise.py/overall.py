@@ -79,59 +79,59 @@
 #     b.show()
 
 
-# class rider:
-#     def __init__(self,name):
-#         self.name=name
-#         self.current_ride=None
-#     def rider_request(self,pickup,dropup):
-#         if self.current_ride:
-#             print("you already in a ride")
-#             return None
-#         ride=Ride(self,pickup,dropup)
-#         self.current_ride=ride
-#         return ride
+class rider:
+    def __init__(self,name):
+        self.name=name
+        self.current_ride=None
+    def rider_request(self,pickup,dropup):
+        if self.current_ride:
+            print("you already in a ride")
+            return None
+        ride=Ride(self,pickup,dropup)
+        self.current_ride=ride
+        return ride
     
-# class driver:
-#     def __init__(self,name):
-#         self.name=name
-#         self.current_ride=None
-#     def accept_request(self,ride):
-#         if self.current_ride:
-#             print("your are already in a ride")
-#             return 
-#         if ride.status!="Requested":
-#             print("ride is not available")
-#             return
-#         ride.driver=self
-#         ride.status="Accepted"
-#         self.current_ride=ride
-#         print(f"{self.name} accept your request")
+class driver:
+    def __init__(self,name):
+        self.name=name
+        self.current_ride=None
+    def accept_request(self,ride):
+        if self.current_ride:
+            print("your are already in a ride")
+            return 
+        if ride.status!="Requested":
+            print("ride is not available")
+            return
+        ride.driver=self
+        ride.status="Accepted"
+        self.current_ride=ride
+        print(f"{self.name} accept your request")
 
-# class Ride:
-#     def __init__(self,rider,pickup,dropup):
-#         self.rider=rider
-#         self.driver=None
-#         self.pickup=pickup
-#         self.dropup=dropup
-#         self.status="Requested"
-#     def complete(self):
-#         if self.status!="Accepted" :
-#          print("ride is not in progress")
-#          return  
-#         self.status ="Complete"
-#         print("ride is completed")
-#     def cancle(self):
-#           if self.status == "Completed":
-#             print("Cannot cancel a completed ride.")
-#             return
-#           self.status = "Cancelled"
-#           print("Ride cancelled.")
+class Ride:
+    def __init__(self,rider,pickup,dropup):
+        self.rider=rider
+        self.driver=None
+        self.pickup=pickup
+        self.dropup=dropup
+        self.status="Requested"
+    def complete(self):
+        if self.status!="Accepted" :
+         print("ride is not in progress")
+         return  
+        self.status ="Complete"
+        print("ride is completed")
+    def cancle(self):
+          if self.status == "Completed":
+            print("Cannot cancel a completed ride.")
+            return
+          self.status = "Cancelled"
+          print("Ride cancelled.")
 
-# r=rider("ali")
-# d=driver("ahmad")
-# ride=r.rider_request("muslim town","thokar naiz biag")
-# d.accept_request(ride)
-# ride.complete()
+r=rider("ali")
+d=driver("ahmad")
+ride=r.rider_request("muslim town","thokar naiz biag")
+d.accept_request(ride)
+ride.complete()
 
 
 class animal:
@@ -152,6 +152,7 @@ class elephant(animal):
 
 s1=lion()
 s1.speak()
+
         
 
 

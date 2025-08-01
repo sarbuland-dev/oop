@@ -1,9 +1,10 @@
-# print("welcome to SB bank \n Har faard ka bharosa!")
+
 import random
 class bank_menu:
     def __init__(self):
         print("welcome to SB bank \n Har faard ka bharosa!")
         self.check_account=[]
+        self.password=[]
         self.balance={}
     def menu(self):
         print("Select your option below")
@@ -16,28 +17,30 @@ class bank_menu:
             print("You choose \open new account")
             FirstName=input("Enter your First Name\n")
             FirstName.capitalize()
+            Firstindex=FirstName[0].upper()
             
             LastName=input("Enter your Last Name\n")
             LastName.capitalize()
+            Lastindex=LastName[0].upper()
             fullname=f"{FirstName.capitalize()} {LastName.capitalize()}"
             print(f"A o A! {fullname} ")
             while True:
-             account=random.randint(10000,55555)
-            
+             account=random.randint(1000,5555)
+             account=f"{Firstindex}{Lastindex}{account}"
              if account not in self.check_account:
                  self.check_account.append(account)
-                 print(f"Mr.{fullname} ! your accound number is {account} ")
+                 print(f"Mr.{fullname} ! your accound number is  {account} ")
                  break
              else:
          
                  print(" this account is already created! plz wait new account is generating ")
             while True:
-             account_input=int(input("enter your accout number which is created by SB bank authority     "))
+             account_input=(input("enter your accout number which is created by SB bank authority     "))
              if account_input==account:
                 password_input=int(input("enter your password(1-4) digits  "))
                 if 1000<=password_input<=9999:
-                    if password_input not in self.check_account:
-                        self.check_account.append(password_input)
+                    if password_input not in self.password:
+                        self.password.append(password_input)
                         self.balance[account]=0
                         print("password save successfully!")
                         break
@@ -55,11 +58,11 @@ class bank_menu:
         choice=int(input("Enter your choice "))
         if choice==1:
            print("you choice Balance Inquary ")
-           account_check=int(input("enter your SB account  "))
+           account_check=(input("enter your SB account  "))
            if account_check in self.check_account:
               
               password_check=int(input("Enter your password "))
-              if password_check in self.check_account:
+              if password_check in self.password:
                  balance=self.balance
                  print(f"your balance is {balance}")
               else:
@@ -68,30 +71,46 @@ class bank_menu:
               print("Account not found!!")
         elif choice==2:
            while True:
-            print("Select option below ")
-            print("1: Deposit money ")
-            print("2: withdraw money ")
-            choice=int(input("enter your choice  "))
-            if choice==1:
-              print("you choose to deposit ")
-              amount=int(input("enter your amount to deposit  "))
-              self.balance[account]+=amount
-            #   self.balance.append(deposit_amount)
-              print(f"your deposit amount {amount} added to your bank balance successfully!!")
-            elif choice==2:
-              print("you selected withdraw money ")
-              amount=int(input("enter your amount "))
-              if 0<amount<=self.balance[account]:
-                 self.balance[account]-=amount
-                #  self.balance.append(withdraw_amount)
-                 print(f"you withdraw {amount}  and current balance is",self.balance)
-              else:
-                 print("insufficient balance !!!")
+            print ("you choice transaction ")
+            trans_check=(input("Enter your account number  "))
+            if trans_check in self.check_account:
+               trans_pass=int(input(("Plz enter your password  ")))
+               if trans_pass in self.password:
+
+               
+                 print("Select option below ")
+                 print("1: Deposit money ")
+                 print("2: withdraw money ")
+                 print("3: Exit")
+                 choice=int(input("enter your choice  "))
+                 if choice==1:
+                     print("you choose to deposit ")
+                     amount=int(input("enter your amount to deposit  "))
+                     self.balance[account]+=amount
+            
+                     print(f"your deposit amount {amount} added to your bank balance successfully!!")
+                 elif choice==2:
+                   print("you selected withdraw money ")
+                   amount=int(input("enter your amount "))
+                   if 0<amount<=self.balance[account]:
+                      self.balance[account]-=amount
+               
+                      print(f"you withdraw {amount}  and current balance is",self.balance)
+                   else:
+                     print("insufficient balance !!!")
                  
-           else:
-              print("ivalid option ")
-                   
+                 elif choice==3:
+                    exit()
+                  
+               else:
+                  print("wrong password!!")    
            
+           else:
+              print("accound not found")
+
+                 
+              
+             
          
               
 

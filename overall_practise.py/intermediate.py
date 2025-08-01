@@ -156,60 +156,192 @@
 
 # Bonus: Use a mixin class for logging to allow reusability
               
-class bankAccount:
+# class bankAccount:
 
     
-    def __init__(self,name,account_number,balance):
-        self.name=name
-        self.account_number=account_number
-        self.__balance=balance
-        self.__new_balance=0
-        self.log=[]
-    def details(self):
-        print("Name",self.name)
-        print("Account number",self.account_number)
-        print("balance",self.__balance)
-    def deposit(self,amount):
-        if 0<=amount<=20000:
-            deposit=self.__balance+amount
-            self.__new_balance=deposit
-            self.log.append(f"deposit amont is {deposit} and new balance is {self.__new_balance}")
+#     def __init__(self,name,account_number,balance):
+#         self.name=name
+#         self.account_number=account_number
+#         self.__balance=balance
+#         self.__new_balance=0
+#         self.log=[]
+#     def details(self):
+#         print("Name",self.name)
+#         print("Account number",self.account_number)
+#         print("balance",self.__balance)
+#     def deposit(self,amount):
+#         if 0<=amount<=20000:
+#             deposit=self.__balance+amount
+#             self.__new_balance=deposit
+#             self.log.append(f"deposit amont is {deposit} and new balance is {self.__new_balance}")
             
-            print("your deposit valu is ",amount)
-            print(f"you {amount} is added and your total amont is {deposit}")
-    def withdraw(self,amount):
-        if 0<=amount<=20000:
-            withdraw=self.__new_balance-amount
-            self.log.append(f"withdraw amont is {amount} and balance remain {withdraw}")
-            print("your withdraw  amount is ",amount)
-            print(f"you {amount} is withdraw and your total amont is {withdraw}")
-    def get_balance(self):
-        print(self.__balance)
-    def get_new_balance(self):
-        print(self.__new_balance)
-    def set_balance(self,amount):
+#             print("your deposit valu is ",amount)
+#             print(f"you {amount} is added and your total amont is {deposit}")
+#     def withdraw(self,amount):
+#         if 0<=amount<=20000:
+#             withdraw=self.__new_balance-amount
+#             self.log.append(f"withdraw amont is {amount} and balance remain {withdraw}")
+#             print("your withdraw  amount is ",amount)
+#             print(f"you {amount} is withdraw and your total amont is {withdraw}")
+#     def get_balance(self):
+#         print(self.__balance)
+#     def get_new_balance(self):
+#         print(self.__new_balance)
+#     def set_balance(self,amount):
         
-        self.__balance=amount
-        print(amount)
-    def show_histry(self):
-        if not self.log:
-            print("not any transaction histry")
-        else:
-            print(self.log)
+#         self.__balance=amount
+#         print(amount)
+#     def show_histry(self):
+#         if not self.log:
+#             print("not any transaction histry")
+#         else:
+#             print(self.log)
         
-s1=bankAccount("ali",123456,1000)
-s1.details()
-s1.deposit(2000)
-s1.withdraw(2000)
-s1.get_balance()
-s1.set_balance(5000)
-s1.deposit(5000)
-s1.show_histry()
-print("_______________________________-")
-s2=bankAccount("ahmad",34567,4000)
-s2.details()
-s2.deposit(4000)
-s2.withdraw(1000)
-print("________________________________")
-s2.show_histry()
+# s1=bankAccount("ali",123456,1000)
+# s1.details()
+# s1.deposit(2000)
+# s1.withdraw(2000)
+# s1.get_balance()
+# s1.set_balance(5000)
+# s1.deposit(5000)
+# s1.show_histry()
+# print("_______________________________-")
+# s2=bankAccount("ahmad",34567,4000)
+# s2.details()
+# s2.deposit(4000)
+# s2.withdraw(1000)
+# print("________________________________")
+# s2.show_histry()
 
+
+class vehical:
+    
+    def __init__(self):
+        print("Welcom to our services!")
+        self.car_bill=[]
+        self.Turck_bill=[]
+        self.bike_bill=[]
+        self.car_balance=0
+        self.truck_balance=0
+        self.bike_balance=0
+
+    def details(self):
+        
+        print("choice your vehical type ")
+        print("1: car ")
+        print("2: truck")
+        print("3: bike ")
+        print("0: Exit  ")
+        vehical_type=int(input("enter your vehical type  "))
+        if 1<=vehical_type<=3:
+         while True:
+            if vehical_type==1:
+                print(" your car menu ")
+                print("1: oil change___230Rs/-")
+                print("2: car wash___200Rs/-")
+                print("3: headlight repairing__2000Rs/-")
+                print("4: internal repairing___1500Rs/-")
+                print("5: back to vechical menu! ")
+                choices=(input("Enter your choice (1,2,3,4,5)  ")).split(",")
+                for choice in choices:
+                 choice=choice.strip() 
+                 if choice=="1":
+                    self.car_balance+=230
+                    self.car_bill.append(("oil change", 230))
+                 elif choice=="2":
+                    self.car_balance+=200
+                    self.car_bill.append(("car wash", 200))
+                 elif choice=="3":
+                    self.car_balance+=2000
+                    self.car_bill.append(("headlight repairing", 2000))
+                 elif choice=="4":
+                    self.car_balance+=1500
+                    self.car_bill.append(("internal repairing", 1500))
+                 elif choice=="5":
+                    print(self.details())
+                    break
+                 else:
+                    print("invalid option ")
+                print(f"Your total bill of car service  {self.car_balance}/-")
+            elif vehical_type==2:
+               while True:
+                  print("your Truck menu is: ")
+                  print("1: oil change___400Rs/-")
+                  print("2: truck wash___1000Rs/-")
+                  print("3: headlight repairing__3000Rs/-")
+                  print("4: internal repairing___2000Rs/-")
+                  print("5: back to vechical menu! ")
+                  choices=input("Enter your choice (1,2,3,4,5)  ").split(",")
+                  for choice in choices:
+                     choice=choice.strip()
+                     if choice=="1":
+                        self.truck_balance+=400
+                        self.Turck_bill.append(("oil change", 400))
+                     elif choice=="2":
+                        self.truck_balance+=1000
+                        self.Turck_bill.append(("truck wash", 1000))
+                     elif choice=="3":
+                        self.truck_balance+=3000
+                        self.Turck_bill.append(("headlight repairing", 3000))
+                     elif choice=="4":
+                        self.truck_balance+=2000
+                        self.Turck_bill.append((" internal repairing", 2000))
+                     elif choice=="5":
+                        print(self.details())
+                        break
+                     else:
+                        print("invalid option ")
+                  print(f"Your total bill of truck service  {self.truck_balance}/-")
+            elif vehical_type==3:
+                     while True:
+                      print("your bike menu is: ")
+                      print("1: oil change___100Rs/-")
+                      print("2: bike wash___150Rs/-")
+                      print("3: headlight repairing__2000Rs/-")
+                      print("4: internal repairing___1500Rs/-")
+                      print("5: back to vechical menu! ")
+                      choices=input("Enter your choice (1,2,3,4,5)  ").split(",")
+                      for choice in choices:
+                          choice=choice.strip()
+                          if choice=="1":
+                           self.bike_balance+=100
+                           self.bike_bill.append(("oil change", 100))
+                          elif choice=="2":
+                           self.bike_balance+=150
+                           self.bike_bill.append(("bike wash" ,150))
+                          elif choice=="3":
+                           self.bike_balance+=2000
+                           self.bike_bill.append(("headlight repairing" ,2000))
+                          elif choice=="4":
+                           self.bike_balance+=1500
+                           self.bike_bill.append(("internal repairing" , 1500))
+                          elif choice=="5":
+                           print(self.details())
+                           break
+                          else:
+                           print("invalid option ")
+                     
+                      print(f"Your total bill of bike service  {self.bike_balance}/-")
+               
+                    
+
+                     
+
+                  
+                      
+                    
+
+                   
+        elif vehical_type==0:
+           print(f"Your car bill of  service  {self.car_bill}/-")
+           print(f"Your truck bill of  service  {self.Turck_bill}/-")
+           print(f"Your bike bill of  service  {self.bike_bill}/-")
+           total=self.car_balance+self.truck_balance+self.bike_balance
+           print(f"your total bill is {total} ")
+           print("Takecare! goodbye ")
+           exit()
+                
+
+
+s1=vehical()
+s1.details()

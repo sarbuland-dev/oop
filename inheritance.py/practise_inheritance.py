@@ -129,7 +129,16 @@ print(s2.area())
     
 
 
+class Animal:
+    def speak(self):
+        print("sound of animals")
+
+class dog(Animal):
+    def speak(self):
+        print("dog can bark")   
         
+s1=dog()
+s1.speak()    
 
         
 
